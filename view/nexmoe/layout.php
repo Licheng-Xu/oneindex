@@ -21,7 +21,9 @@
 			<div class="navRight">
 				<ul class="navul">
                     <li class="navli"><a style="color: black" href="/"><b><i class="mdui-icon material-icons">cloud_queue</i> 首页</b></a></li>
-                    <li class="navli"><a style="color: black" href="/images"><b><i class="mdui-icon material-icons">image</i> 图床</b></a></li>
+					<?php if( ($_COOKIE['admin'] == md5(config('password').config('refresh_token')) || $images['public']) ) : ?>
+                    	<li class="navli"><a style="color: black" href="/images"><b><i class="mdui-icon material-icons">image</i> 图床</b></a></li>
+					<?php endif ?>
 					<li class="navli"><a style="color: black" href="https://github.com/Licheng-Xu/oneindex" target="_blank"><b><i class="mdui-icon material-icons">star_border</i> Github</b></a></li>
 				</ul>
 				<div class="icon"></div>

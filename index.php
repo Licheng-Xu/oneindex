@@ -54,7 +54,11 @@ if( ($_COOKIE['admin'] == md5(config('password').config('refresh_token')) || $im
 		route::any('/','ImagesController@index');
 	}
 }
-
+// 这里是为了配合 ShareX 自定义图片上传
+// 直接使用密码作为 api_key，即使在没有开放游客上传时管理员未登录也可以直接上传
+if( $_COOKIE['api_key'] == config('password')) {
+	route::any('/images','ImagesController@index');
+}
 
 /**
  *    列目录
