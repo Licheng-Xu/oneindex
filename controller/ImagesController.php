@@ -14,7 +14,7 @@ class ImagesController{
 		if($this->is_image($_FILES["file"]) ){
 		    $filename = $_FILES["file"]['name'];
 			$content = file_get_contents( $_FILES["file"]['tmp_name']);
-			$remotepath =  'images/'.date('Y/m/d/').$this->generateRandomString(10).'/';
+			$remotepath =  'Pictures/'.date('Y/m/d/').$this->generateRandomString(10).'/';
 			$remotefile = $remotepath.$filename;
 			$result = onedrive::upload(config('onedrive_root').$remotefile, $content);
 			
